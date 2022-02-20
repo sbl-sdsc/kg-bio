@@ -1,0 +1,4 @@
+property,type,description,example
+id,string,Compact URI (CURIE) for complex,reactome:R-HSA-212703
+name,string,Name of complex,Activated EGFR:Phospho-PLC-gamma1
+synonyms,string,Alternative names of complex,"Activated EGFR:Phospho-PLC-gamma1|EGF-like l..."

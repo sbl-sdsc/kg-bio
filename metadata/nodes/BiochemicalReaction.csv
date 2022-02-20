@@ -1,0 +1,4 @@
+property,type,description,example
+id,string,Compact URI (CURIE) for biochemical reaction,reactome:R-HSA-9674531
+name,string,Name of biochemical reaction,AAMP binds EGFR
+synonyms,string,Alternative names of biochemical reaction,AAMP binds EGFR

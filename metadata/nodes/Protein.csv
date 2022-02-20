@@ -1,0 +1,4 @@
+property,type,description,example
+id,string,Compact URI (CURIE) of protein,
+name,string,Name of protein,
+synonyms,string,Alternative names of protein,

@@ -1,0 +1,4 @@
+property,type,description,example
+id,string,Compact URI (CURIE) for pathway,reactome:R-HSA-162582
+name,string,Name of pathway,Signaling Pathways
+synonyms,string,Alternative names of pathway,Signaling Pathways|Signal Transduction
