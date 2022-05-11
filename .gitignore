@@ -107,5 +107,11 @@ logs/
 # Nemo
 config.yml
 
+# MacOS
+.DS_Store
+
 # kg-bio
 data
+cache
+crossreferences
+notebooks/dask-worker-space

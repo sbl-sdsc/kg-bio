@@ -1,0 +1,7 @@
+property,type,description,example
+id,string,inchiKey CURIE (compact URI) of compound,inchikey:MFRNFCWYPYSFQQ-UHFFFAOYSA-N
+name,string,Name or identifier of a compound,CHEMBL153534
+ids,string,List of identifiers specified as a CURIE separated by vertical bar,chembl:CHEMBL153534
+inchiKey,string,InChI Key of compound,MFRNFCWYPYSFQQ-UHFFFAOYSA-N
+inchi,string,InChI of compound,InChI=1S/C10H13N5S/c1-6-3-7(4-15(6)2)8-5-16-10...	
+smiles,string,SMILES string,Cc1cc(-c2csc(N=C(N)N)n2)cn1C

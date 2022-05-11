@@ -1,0 +1,3 @@
+property,type,description,example
+from,string,Id of source node,taxonomy:9606
+to,string,Id of target node,taxonomy:9605
