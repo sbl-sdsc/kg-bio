@@ -1,0 +1,2 @@
+resource,url,filename,processor
+NcbiGenes,https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz,,ProcessNcbiGenes

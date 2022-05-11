@@ -1,0 +1,8 @@
+property,type,description,example
+id,string,Compact URI (CURIE) of gene,
+name,string,Name or symbol of gene,
+synonyms,string,Alternative names of gene,
+description,string,Descripion or name of gene,
+officialSymbol,string,Symbol from nomenclature authority,
+geneType,string,Type of gene,protein-coding
+taxonomyId,string,Compact URI (CURIE) of organism,taxonomy:9606

@@ -1,0 +1,7 @@
+property,type,description,example
+id,string,Compact URI (CURIE) for organism,taxonomy:9606
+name,string,Name of organism,Homo sapiens
+synonyms,string,Alternative names of organism,"Homo sapiens Linnaeus, 1758|Homo sapiens|human"
+scientificName,string,Scientific name,Homo sapiens
+division,string,Division in taxonomy tree,Primates
+rank,string,Rank in taxonomy tree,species
