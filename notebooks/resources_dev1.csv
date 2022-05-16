@@ -1,2 +1,8 @@
 resource,url,filename,processor
+NcbiTaxonomy,https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/new_taxdump/new_taxdump.tar.gz,,ProcessNcbiTaxonomy
 NcbiGenes,https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz,,ProcessNcbiGenes
+TremblViruses,https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_trembl_viruses.xml.gz,,ProcessUniProt
+UniprotViruses,https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_viruses.xml.gz,,ProcessUniProt
+UniprotHuman,https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_human.xml.gz,,ProcessUniProt
+UniprotMammals,https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_mammals.xml.gz,,ProcessUniProt
+UniprotRodents,https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_rodents.xml.gz,,ProcessUniProt

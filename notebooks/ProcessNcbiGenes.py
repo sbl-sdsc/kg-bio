@@ -22,7 +22,7 @@ class ProcessNcbiGenes(ex.ExtractData):
         self.fileformat = fileformat
         self.compression = compression
         self.node_name = "Gene"
-        self.edge = "Organism-ENCODES-Gene"
+        self.edge_name = "Organism-ENCODES-Gene"
         
         # metadata: property, type, description, example
         node_properties = [
@@ -38,8 +38,8 @@ class ProcessNcbiGenes(ex.ExtractData):
             ["to", "string", "gene identifier", "ncbigene:59272"],
         ]
             
-        self.node_metadata = {self.node_name, node_properties}
-        self.edge_metadata = {self.edge_name, edge_properties}
+        self.node_metadata = {self.node_name: node_properties}
+        self.edge_metadata = {self.edge_name: edge_properties}
 
     def extract_data(self):
         filename, file_extension = os.path.splitext(self.filename)
@@ -49,9 +49,9 @@ class ProcessNcbiGenes(ex.ExtractData):
                 shutil.copyfileobj(f_in, f_out)
 
         column_names = ["GeneID", "Symbol", "Synonyms", "description", "type_of_gene", "#tax_id"]
-        new_names = [x[0] for x in self.node_properties]
+        new_names = [x[0] for x in self.node_metadata.get('Gene')]
 
-        genes = dd.read_csv(filename, usecols=column_names, dtype=str, sep="\t", blocksize="0.1 GB")
+        genes = dd.read_csv(filename, usecols=column_names, dtype=str, sep="\t", blocksize="0.25 GB")
         genes = genes.rename(columns=dict(zip(column_names, new_names)))
 
         genes = genes.replace("-", "")
@@ -63,4 +63,7 @@ class ProcessNcbiGenes(ex.ExtractData):
         edges = genes[["taxonomyId", "id"]]
         edges = edges.rename(columns={"taxonomyId": "from", "id": "to"})
 
-        self.save_edges(edges, self.edge)
+        self.save_edges(edges, self.edge_name)
+        
+        # remove temporary unzipped file
+        os.remove(filename)

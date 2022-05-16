@@ -60,6 +60,6 @@ class ExtractData:
             dataframe.to_csv(
             os.path.join(path, name + self.get_postfix() + '.csv'), compression=self.compression, index=False)
 
-                    self.node_metadata = {self.node_name, gene_metadata}
-        self.edge_metadata = {self.edge_name, organism_encodes_gene_metadata}
+        # self.node_metadata = {self.node_name, gene_metadata}
+        # self.edge_metadata = {self.edge_name, organism_encodes_gene_metadata}
             
