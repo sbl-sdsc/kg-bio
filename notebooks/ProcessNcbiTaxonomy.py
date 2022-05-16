@@ -17,7 +17,7 @@ class ProcessNcbiTaxonomy(ex.ExtractData):
         self.fileformat = fileformat
         self.compression = compression
         self.node_name = "Organism"
-        self.edge = "Organism-IS_A-Organims"
+        self.edge_name = "Organism-IS_A-Organims"
         
         # metadata: property, type, description, example
         node_properties = [
@@ -30,9 +30,10 @@ class ProcessNcbiTaxonomy(ex.ExtractData):
         edge_properties = [
             ["from", "string", "NCBI taxonomy id", "taxonomy: 9605"],
             ["to", "string", "NCBI taxonomy id", "taxonomy: 9606"],
+        ]
             
-        self.node_metadata = {self.node_name, node_properties}
-        self.edge_metadata = {self.edge_name, edge_properties}
+        self.node_metadata = {self.node_name: node_properties}
+        self.edge_metadata = {self.edge_name: edge_properties}
             
     def get_node_metadata(self):
         return self.node_metadata

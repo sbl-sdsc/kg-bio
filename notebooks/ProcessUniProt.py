@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-__all__ = ["ProcessUniProtXL"]
+__all__ = ["ProcessUniProt"]
 
 import extract_data as ex
 import os
@@ -12,7 +12,7 @@ from lxml import etree
 import csv
 
 
-class ProcessUniProtXL(ex.ExtractData):
+class ProcessUniProt(ex.ExtractData):
     """
     Extract node and relationship data from UniProt xml files.
     """
@@ -26,7 +26,7 @@ class ProcessUniProtXL(ex.ExtractData):
         self.df_host = None
         self.df_cleavage = None
         self.node_name = "Gene"
-        self.edge = "Organism-ENCODES-Gene"
+        self.edge_name = "Organism-ENCODES-Gene"
         
         # metadata: property, type, description, example
         node_properties = [
@@ -43,9 +43,9 @@ class ProcessUniProtXL(ex.ExtractData):
         edge_properties = [
             ["from", "string", "NCBI taxonomy id", "taxonomy:9606"],
             ["to", "string", "gene identifier", "ncbigene:59272"],
-            
-        self.node_metadata = {self.node_name, node_properties}
-        self.edge_metadata = {self.edge_name, edge_properties}
+        ]
+        self.node_metadata = {self.node_name: node_properties}
+        self.edge_metadata = {self.edge_name: edge_properties}
 
     def extract_data(self):
         with gzip.open(self.filename, "rb") as file:
@@ -93,7 +93,7 @@ class ProcessUniProtXL(ex.ExtractData):
             sequence = self.__get_sequence(entry)
             
             synonymes = [entry_name]
-            if len(names > 1)
+            if len(names):
                 synonymes = synonymes + names[1:]
             synonymes = '|'.join(synonymes)
             
@@ -128,13 +128,16 @@ class ProcessUniProtXL(ex.ExtractData):
             entry.clear()
 
         # save any remaining records
-        if len(proteins) > 0:
+        #if len(proteins) > 0:
+        if proteins:
             self.save_df(protein_filename, proteins, protein_columns, protein_count)
 
-        if len(hosts) > 0:
+        #if len(hosts) > 0:
+        if hosts:
             self.save_df(host_filename, hosts, host_columns, host_count, True)
 
-        if len(chains) > 0:
+        #if len(chains) > 0:
+        if chains:
             self.save_df(chain_filename, chains, chain_columns, chain_count)
 
     def __get_accessions(self, entry):
